@@ -1,0 +1,152 @@
+
+.custom-text{
+    color: white;
+    opacity: 0.5;
+    font-size: 11px;
+}
+.font-11{
+    font-size: 11px;
+}
+.event-filter{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 200px;
+    min-height: 50px;
+    max-height: 250px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    padding: 20px;
+    z-index: 999999;
+    top: 60px;
+}
+.event-filter p{
+    font-size: 13px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+.triangle{
+    position: absolute;
+    top: 50px;
+    left: 50%; 
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.1) transparent transparent;
+    transform: rotate(180deg);
+}
+::-webkit-scrollbar {
+    width: 4px;
+    height: 10px;
+    /* display: none; */
+}
+  ::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0, 0.1);
+}
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0, 0.4); 
+}
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 0, 0, 0.4); 
+}
+.expire-img{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+/* VIEW EVENT */
+.view-more-event-img{
+    background-color: rgba(255, 255, 255, 0.1);
+    filter: blur(5px) brightness(100%);
+}
+.scrollContainer{
+    overflow-y: scroll !important;
+    /* overflow-x: hidden !important; */
+    height: 100% !important;
+}
+.event-details{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+.event-question:first-child{
+    color: white !important;
+    opacity: 0.5 !important;
+} 
+
+.circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+
+}
+.decrease {
+    font-size: 15px;
+    color: white;
+}
+
+.ticket-event-number {
+    margin: 0 auto; 
+    font-size: 16px; 
+}
+  
+.tickets-event-details {
+    flex: 1; 
+}
+
+.scrollContainer::-webkit-scrollbar{
+    display: none;
+}
+  /* CART */
+.event-date{
+    opacity: 0.6;
+}
+.second-ticket-conteriner,  .card-intro{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+.bigContainer{
+    overflow-y: scroll;
+}
+.bigContainer::-webkit-scrollbar{
+    display: none;
+}
+.checkout-container{
+    overflow-y: scroll;
+}
+.checkout-container::-webkit-scrollbar{
+    display: none;
+}
+
+.total-ticket-price > div{
+    border-top: 1px solid #01DE9B;
+}
+.pay-ticket-card{
+    background-image: linear-gradient(to right, #01DE9B,#AA21ED);
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+}
+.total-price{
+    background-image: linear-gradient(to right ,rgba(1, 222, 155, 0.3), #FFFFFF00);
+    border-top: #FFFFFF33 solid 1px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: black;
+}
+.billing-details{
+    background-image: linear-gradient(to right, #FFFFFF4A,#FFFFFF00);
+}
+.pay-button-checkout{
+    background-image: linear-gradient(to right, rgba(1, 222, 155, 0.3), rgba(1, 222, 155, 0), rgba(1, 222, 155, 0.3));
+}
+select#general-admission option {
+    background-color: black !important;
+}
+.tickets-view-cart{
+    background-image: linear-gradient(to right, #01DE9B,#AA21ED);
+
+}
+#playButton{
+    background: url('/src/assets/Group\ 102.png');
+    background-repeat: no-repeat;
+}
+
