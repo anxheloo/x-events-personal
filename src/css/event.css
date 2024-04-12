@@ -217,11 +217,10 @@ select#general-admission option {
   );
 }
 
-/* ffffff65 */
-/* 00000000 */
-
-.containerGradient {
-  background: linear-gradient(270deg, #ffffff0c 20%, #00000000 100%);
+@media only screen and (min-width: 1280px) {
+  .containerGradient {
+    background: linear-gradient(270deg, #ffffff0c 20%, #00000000 100%);
+  }
 }
 
 @media only screen and (max-width: 768px) {
