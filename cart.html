@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/src/css/styles.css" rel="stylesheet" />
+    <link href="/src/css/event.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="/src/js/jquerymin.js"></script>
+    <script src="/src/js/custom.js"></script>
+    <style>
+      .cart {
+        border-bottom: 1px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background w-full h-screen relative">
+      <header
+        class="bg-transparent flex flex-col lg:flex-row px-14 w-full justify-between lg:justify-start baseheader items-center"
+      >
+        <div class="flex justify-between w-full lg:w-auto h-full items-center">
+          <div class="w-36">
+            <a href="index.html"
+              ><img src="/src/assets/images/logo.svg" class="w-full"
+            /></a>
+          </div>
+          <button
+            data-collapse-toggle="mobile-menu-2"
+            type="button"
+            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none dark:text-gray-400"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            id="button-mobile"
+          >
+            <svg
+              class="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu-2"
+          class="hidden flex-col lg:flex lg:flex-row lg:justify-center w-full lg:items-center lg:flex-wrap h-full"
+        >
+          <a
+            id="Home"
+            href="index.html"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase py-7 lg:py-0 text-sm lg:h-full px-12 lg:px-0 border border-slate-200/50 border-x-0 lg:border-0 lg:items-center lg:justify-center"
+            >Home</a
+          >
+          <a
+            id="Events"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Events</a
+          >
+          <a
+            id="Music"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Music</a
+          >
+          <a
+            id="aboutUs"
+            href="aboutUs.html"
+            id="ab"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase text-sm lg:h-full py-7 lg:py-0 px-12 lg:px-0 border border-slate-200/50 border-x-0 border-t-0 lg:border-0 lg:items-center lg:justify-center"
+            >About Us</a
+          >
+        </div>
+      </header>
+      <div class="divContainer basecontainer">
+        <div class="absolute top-0 top-right right-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element1.svg" class="corners" />
+        </div>
+        <div class="absolute bottom-0 left-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element2.svg" class="corners" />
+        </div>
+        <div
+          class="border border-slate-300/50 rounded-[45px] w-auto mx-10 sm:mx-36 h-full bigContainer"
+        >
+          <div class="pt-12 md:px-12 px-6">
+            <div
+              class="card-intro flex-col md:flex-row flex justify-between items-center pb-5"
+            >
+              <p class="text-white text-[36px]">CART</p>
+              <div class="text-white flex md:gap-[70px] gap-[10px]">
+                <p class="fontAlbertRegular text-[18px]">Quantity</p>
+                <p class="fontAlbertRegular text-[18px]">Price</p>
+                <p class="fontAlbertRegular text-[18px]">Total price</p>
+              </div>
+            </div>
+          </div>
+          <div class="tickets-event-card pt-[30px]">
+            <div
+              class="grid pr-5 pl-5 md:grid-cols-2 grid-cols-1 md:pr-12 md:pl-12"
+            >
+              <div class="flex flex-col md:flex-row">
+                <img
+                  src="/src/assets/EVENTS/actress.png"
+                  class="max-w-[100px] max-h-[100px] w-full h-full rounded-[10px]"
+                />
+                <div class="flex ml-0 md:pl-[30px] pl-0">
+                  <div class="text-white">
+                    <p class="text-[24px]">THE ASYLUM DAY PARTY</p>
+                    <p class="event-date text-[18px] fontAlbertRegular">
+                      16 Dec 2023 / Folie Electronic
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex md:justify-end justify-start">
+                <p
+                  class="ticket_price bg-gradient-to-r from-[#01DE9B00] to-[#01DE9B60] border-[#01DE9B5C] border-solid border rounded-lg max-h-16 h-full p-[18px] text-white"
+                >
+                  700 €
+                </p>
+              </div>
+            </div>
+            <div class="pr-5 pl-5 md:pl-[180px] md:pr-[50px]">
+              <p class="text-[#01DE9B] fontAlbertRegular">Tickets</p>
+              <div class="flex text-white justify-between flex-col md:flex-row">
+                <div class="flex md:flex-col">
+                  <p>GENERAL ADMISSION</p>
+                  <p>150 €</p>
+                </div>
+                <div class="z-[999] flex items-center gap-[20px]">
+                  <form action="submit">
+                    <label for="general-admission"></label>
+                    <select
+                      id="general-admission"
+                      name="general-admission"
+                      size="1"
+                      class="bg-[transparent] py-[12px] px-[20px] rounded-[60px] input-ticket-number border border-solid border-white border-opacity-20"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </form>
+                  <p>150 €</p>
+                  <button
+                    class="text-[17px] fontAlbertRegular py-[12px] px-[20px] rounded-[60px] border border-solid border-white border-opacity-20 remove-ticket"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pr-5 pl-5 md:pl-[180px] md:pr-[50px] py-[20px] second-ticket-conteriner border-b border-solid border-white border-opacity-20"
+            >
+              <div
+                class="flex md:flex-row flex-col text-white justify-between second-ticket-type pt-[20px] border-t border-solid border-white border-opacity-20"
+              >
+                <div class="flex justify-between md:flex-col">
+                  <p>VIP</p>
+                  <p>400 €</p>
+                </div>
+                <div class="z-[999] flex items-center gap-[20px]">
+                  <form action="submit">
+                    <label for="general-admission"></label>
+                    <select
+                      id="general-admission"
+                      name="general-admission"
+                      size="1"
+                      class="bg-[transparent] py-[12px] px-[20px] rounded-[60px] border border-solid border-white border-opacity-20 input-ticket-number"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </form>
+                  <p>400 €</p>
+                  <button
+                    class="text-[17px] fontAlbertRegular py-[12px] px-[20px] rounded-[60px] border border-solid border-white border-opacity-20 remove-ticket"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tickets-event-card pt-[30px]">
+            <div
+              class="grid pr-5 pl-5 md:grid-cols-2 grid-cols-1 md:pr-12 md:pl-12"
+            >
+              <div class="flex flex-col md:flex-row">
+                <img
+                  src="/src/assets/EVENTS/actress.png"
+                  class="max-w-[100px] max-h-[100px] w-full h-full rounded-[10px]"
+                />
+                <div class="flex ml-0 pl-0 md:pl-[30px]">
+                  <div class="text-white">
+                    <p class="text-[24px]">THE ASYLUM DAY PARTY</p>
+                    <p class="event-date text-[18px] fontAlbertRegular">
+                      16 Dec 2023 / Folie Electronic
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex md:justify-end justify-start">
+                <p
+                  class="ticket_price bg-gradient-to-r from-[#01DE9B00] to-[#01DE9B60] border-[#01DE9B5C] border-solid border rounded-lg max-h-16 h-full p-[18px] text-white"
+                >
+                  150 €
+                </p>
+              </div>
+            </div>
+            <div class="pr-5 pl-5 md:pl-[180px] md:pr-[50px]">
+              <p class="text-[#01DE9B] fontAlbertRegular">Tickets</p>
+              <div class="flex md:flex-row flex-col text-white justify-between">
+                <div class="flex justify-between md:flex-col">
+                  <p>GENERAL ADMISSION</p>
+                  <p>150 €</p>
+                </div>
+                <div class="z-[999] flex items-center gap-[20px]">
+                  <form action="submit">
+                    <label for="general-admission"></label>
+                    <select
+                      id="general-admission"
+                      name="general-admission"
+                      size="1"
+                      class="bg-[transparent] py-[12px] px-[20px] rounded-[60px] input-ticket-number border border-solid border-white border-opacity-20"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </form>
+                  <p>150 €</p>
+                  <button
+                    class="text-[17px] fontAlbertRegular py-[12px] px-[20px] rounded-[60px] border border-solid border-white border-opacity-20 remove-ticket"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="total-ticket-price md:pl-[180px] md:pr-[50px] pl-5 pr-5 text-white pt-[15px] pb-5"
+          >
+            <div class="pt-[30px] flex flex-col justify-between md:flex-row">
+              <p class="text-[24px]">TOTAL</p>
+              <div class="flex items-center">
+                <p class="total-price text-[#01DE9B] px-[30px] py-5">850 €</p>
+                <button class="pay-ticket-card px-[30px] py-5">Pay Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

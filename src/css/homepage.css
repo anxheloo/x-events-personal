@@ -1,0 +1,459 @@
+@keyframes lineAnimation {
+    to {
+        width: 45%;
+    }
+}
+
+@keyframes fadeOutLines {
+    0% { opacity: 1;}
+    25% {opacity: 0.7;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.2;}
+    100% {opacity: 0;}
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutLogo {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes fadeInNewLogo {
+
+    0% {
+        opacity: 0;
+        transform: scale(0);
+      
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+     
+    }
+}
+
+@keyframes slideToCornersOne {
+    0%{
+        transform: rotate(180deg) scale(0.4);
+        left: 47%;
+        opacity: 1;
+        bottom: 44%;
+        width: 80px;
+        height: 80px;
+    }
+
+
+    100%{
+        transform: scale(1) rotate(180deg);
+        left: 0;
+        bottom: 0;
+        opacity: 1;
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@keyframes slideToCornersTwo {
+    0%{
+        transform: rotate(-180deg) scale(0.4);
+        right: 47%;
+        opacity: 1;
+        top: 44%;
+        width: 80px;
+        height: 80px;
+    }
+ 
+
+    100%{
+        transform: scale(1) rotate(180deg);
+        right: 0;
+        top: 0;
+        opacity: 1;
+        width: 400px;
+        height: 400px;
+    }
+} 
+
+@keyframes ElementOneNewLogo {
+    0%{
+        left: 50%;
+        transform: scale(1) rotate(225deg);
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+    }
+    100%{
+        left: 50%;
+        transform: scale(1) rotate(225deg);
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes ElementTwoNewLogo {
+    0%{
+        right: 50%;
+        transform: scale(1) rotate(-135deg);
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+    }
+    100%{
+        right: 50%;
+        transform: scale(1) rotate(-135deg);
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes ElementOneNewLogoStepTwo {
+    0%{
+        left: 50%;
+        transform: scale(1) rotate(225deg);
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+    }
+
+    100%{
+        left: 47.2%;
+        transform: scale(0.4) rotate(225deg);
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@keyframes ElementTwoNewLogoStepTwo {
+    0%{
+        right: 50%;
+        transform: scale(1) rotate(-135deg);
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+    }
+    100%{
+        right: 47.2%;
+        transform: scale(0.4) rotate(-135deg);
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@keyframes ElementOneNewLogoStepThree {
+    0%{
+        left: 47.2%;
+        transform: scale(0.4) rotate(225deg);
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    }
+
+    100%{
+        transform: scale(0.4) rotate(180deg) translate(-12px, -25px);
+        left: 47.2%;
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@keyframes ElementTwoNewLogoStepThree {
+    0%{
+        right: 47.2%;
+        transform: scale(0.4) rotate(-135deg);
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    }
+    100%{
+        transform: scale(0.4) rotate(-180deg) translate(12px, 25px);
+        right: 47.2%;
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+    } 
+}
+
+body {
+    margin: 0;
+}
+
+.introContainer {
+    background-image: url("../assets/images/bg.jpg");
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.firstAnimation {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.line{
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 0;
+    animation: lineAnimation 3s forwards;
+}
+
+.left-line {
+    left: 0;
+}
+
+.right-line {
+    right: 0;
+}
+
+.elementOne{
+    position: absolute;
+    opacity: 0;
+    animation: ElementOneNewLogo 1s ease-in forwards 2s, ElementOneNewLogoStepTwo 1s linear forwards 3s, ElementOneNewLogoStepThree 1s linear forwards 4s ;
+}
+
+.enlargeElementOne{
+    animation: slideToCornersOne 1s ease-in forwards;
+}
+
+.elementTwo{
+    animation: ElementTwoNewLogo 1s ease-in forwards 2s,  ElementTwoNewLogoStepTwo 1s linear forwards 3s, ElementTwoNewLogoStepThree 1s linear forwards 4s ;
+    position: absolute;
+    opacity: 0;
+}
+
+.enlargeElementTwo{
+    animation: slideToCornersTwo 1s ease-in forwards;
+}
+
+.fade-out-element{
+    width: 45%;
+    animation: fadeOutLines 1s ease-in-out forwards ;
+}
+
+.logo {
+    padding: 0 20px;
+    opacity: 0; 
+    animation: fade 1s linear forwards, fadeOutLogo 0.5s linear forwards 2s;
+    position: absolute;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.secondHomePage {
+    top: 0;
+    opacity: 0;
+    animation: SecondPage 3s ease-in forwards ;
+    position: absolute !important;
+}
+
+@keyframes SecondPage {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.hidden{
+    display: none;
+}
+.mobileHeader{
+    display: none !important;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 1023px) {
+    @keyframes lineAnimation {
+        to {
+            width: 35%;
+        }
+    }
+
+    .fade-out-element{
+        width: 35%;
+    }
+    
+    @keyframes slideToCornersOne {
+        0%{
+            transform: rotate(180deg) scale(0.4);
+            left: 43%;
+            opacity: 1;
+            bottom: 41.5%;
+            width: 50px;
+            height: 50px;
+        }
+
+
+        100%{
+            transform: scale(1) rotate(180deg);
+            left: 0;
+            bottom: 0;
+            opacity: 1;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    @keyframes slideToCornersTwo {
+        0%{
+            transform: rotate(-180deg) scale(0.4);
+            right: 43%;
+            opacity: 1;
+            top: 41.5%;
+            width: 50px;
+            height: 50px;
+        }
+    
+
+        100%{
+            transform: scale(1) rotate(180deg);
+            right: 0;
+            top: 10vh;
+            opacity: 1;
+            width: 100px;
+            height: 100px;
+        }
+    } 
+
+    @keyframes ElementOneNewLogo {
+        0%{
+            left: 50%;
+            transform: scale(1) rotate(225deg);
+            opacity: 0;
+            width: 60px;
+            height: 60px;
+        }
+        100%{
+            left: 50%;
+            transform: scale(1) rotate(225deg);
+            opacity: 1;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    @keyframes ElementTwoNewLogo {
+        0%{
+            right: 50%;
+            transform: scale(1) rotate(-135deg);
+            opacity: 0;
+            width: 60px;
+            height: 60px;
+        }
+        100%{
+            right: 50%;
+            transform: scale(1) rotate(-135deg);
+            opacity: 1;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    @keyframes ElementOneNewLogoStepTwo {
+        0%{
+            left: 50%;
+            transform: scale(1) rotate(225deg);
+            opacity: 1;
+            width: 60px;
+            height: 60px;
+        }
+
+        100%{
+            left: 43%;
+            transform: scale(0.4) rotate(225deg);
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @keyframes ElementTwoNewLogoStepTwo {
+        0%{
+            right: 50%;
+            transform: scale(1) rotate(-135deg);
+            opacity: 1;
+            width: 60px;
+            height: 60px;
+        }
+        100%{
+            right: 43%;
+            transform: scale(0.4) rotate(-135deg);
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @keyframes ElementOneNewLogoStepThree {
+        0%{
+            left: 43%;
+            transform: scale(0.4) rotate(225deg);
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        }
+
+        100%{
+            transform: scale(0.4) rotate(180deg) translate(-12px, -25px);
+            left: 43%;
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @keyframes ElementTwoNewLogoStepThree {
+        0%{
+            right: 43%;
+            transform: scale(0.4) rotate(-135deg);
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        }
+        100%{
+            transform: scale(0.4) rotate(-180deg) translate(12px, 25px);
+            right: 43%;
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+        } 
+    }
+    
+    .secondHomePage {
+        top: 0;
+        opacity: 0;
+        animation: SecondPage 2s ease-in forwards ;
+        position: absolute !important;
+    }
+
+}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/src/css/styles.css" rel="stylesheet" />
+    <link href="/src/css/event.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="/src/js/jquerymin.js"></script>
+    <script src="/src/js/custom.js"></script>
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .swiper {
+        width: 100%;
+        height: auto;
+        overflow: visible !important;
+        padding-bottom: 40px !important;
+      }
+      .swiper-scrollbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 7px !important;
+        background-color: rgb(255, 255, 255,0.2);
+        opacity: 1;
+        transition: opacity 0.3s;
+        z-index: 10;
+      }
+      .swiper-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(255, 255, 255, 0.1);
+      }
+      .swiper-scrollbar-drag{
+        background-color: #01DE9B !important;
+        height: 7px !important;
+        border-radius: 0 !important;
+        opacity: 0.3 !important;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        width: 29% !important;
+      }
+      .gallerySlider .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .gallerySwipe .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        width: 100% !important;
+        align-items: center;
+      }
+      .gallerySwipe .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media screen and (max-width:786px){
+        .swiper-slide {
+          height: 70% !important;
+        }
+        .swiper-slide:nth-child(2n) {
+          height: 70% !important;
+        }
+        .swiper-slide:nth-child(3n) {
+          height: 70% !important;
+        }
+        .swiper-scrollbar{
+          display: none;
+        }
+        .swiper-slide {
+        width: 73% !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background w-full h-screen relative">
+      <header
+        class="bg-transparent flex flex-col lg:flex-row px-14 w-full justify-between lg:justify-start baseheader items-center"
+      >
+        <div class="flex justify-between w-full lg:w-auto h-full items-center">
+          <div class="w-36">
+            <a href="index.html"
+              ><img src="/src/assets/images/logo.svg" class="w-full"
+            /></a>
+          </div>
+          <button
+            data-collapse-toggle="mobile-menu-2"
+            type="button"
+            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden focus:outline-none dark:text-gray-400"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            id="button-mobile"
+          >
+            <svg
+              class="w-6 h-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              class="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu-2"
+          class="hidden flex-col lg:flex lg:flex-row lg:justify-center w-full lg:items-center lg:flex-wrap h-full"
+        >
+          <a
+            id="Home"
+            href="index.html"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase py-7 lg:py-0 text-sm lg:h-full px-12 lg:px-0 border border-slate-200/50 border-x-0 lg:border-0 lg:items-center lg:justify-center"
+            >Home</a
+          >
+          <a
+            id="Events"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Events</a
+          >
+          <a
+            id="Music"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Music</a
+          >
+          <a
+            id="aboutUs"
+            href="aboutUs.html"
+            id="ab"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase text-sm lg:h-full py-7 lg:py-0 px-12 lg:px-0 border border-slate-200/50 border-x-0 border-t-0 lg:border-0 lg:items-center lg:justify-center"
+            >About Us</a
+          >
+        </div>
+      </header>
+      <div class="divContainer basecontainer">
+        <div class="absolute top-0 top-right right-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element1.svg" class="corners" />
+        </div>
+        <div class="absolute bottom-0 left-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element2.svg" class="corners" />
+        </div>
+        <div class="border border-slate-300/50 rounded-[45px] w-auto mx-10 sm:mx-36 h-full">
+          <div class="m-auto flex h-full row view-event-page md:flex-row flex-col">
+
+            <div class="flex row justify-center md:w-1/3 w-full items-center md:border-r md:border-white md:border-opacity-20 border-none scrollContainer">
+                <div class="scrollContainer pt-[30px] py-[50px] relative">
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[350px] min-w-[260px] max-h-[350px] event-main-img rounded-[10px]">
+                    <div class="event-gallery flex gap-[5px] pt-[15px] relative">
+                        <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[96px] max-h-[84px] event-main-img-others rounded-[10px]">
+                        <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[96px] max-h-[84px] event-main-img-others rounded-[10px]">
+                        <img src="/src/assets/EVENTS/places.png" alt="event-photo" class="max-w-[96px] max-h-[84px] event-main-img-others rounded-[10px]">
+                        <div class="relative">
+                          <img src="/src/assets/EVENTS/kevin.png" alt="event-photo" class="max-w-[96px] max-h-[84px] view-more-event-img rounded-[10px]">
+                          <div class="absolute gallery-img-number text-xl	top-[35%] left-[30%] text-white" id="gallery-img-number">26+</div>
+                        </div>
+                    </div>
+                 
+                    <div class="socials-event">
+                      <p class="text-[#01DE9B] text-xs pt-[40px] pb-[10px]">Share</p>
+                      <div class="flex gap-[10px]">
+                          <img src="/src/assets/EVENTPAGE/facebook.svg">
+                          <img src="/src/assets/EVENTPAGE/twitter.svg">
+                          <img src="/src/assets/EVENTPAGE/whatsapp.svg">
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-2/3 w-full">
+              <div class="scrollContainer md:pt-[65px] pt-[10px] md:px-[30px] flex flex-col">
+                <p class="md:text-4xl text-lg text-white text-center md:text-left">THE ASYLUM DAY PARTY</p>
+                <div class="mobile-place-event flex flex-col justify-center items-center">
+                  <p class="text-xs AlbertSans-Medium text-white opacity-60">Vendodhja</p>
+                  <p class="text-lg fontAlbertRegular text-white">Folia Electronic</p>
+                </div>
+                <div class="event-details flex md:gap-[50px] gap-[15px] py-[40px] pl-[30px] md:pl-0 flex-row ">
+                  <div class="age-restricition flex flex-col">
+                    <p class="text-xs text-white AlbertSans-Medium">Min. Age</p>
+                    <p class="text-[#01DE9B] md:text-lg text-base AlbertSans-Medium">+18</p>
+                  </div>
+                  <div class="date-event flex flex-col">
+                    <p class="text-xs text-white AlbertSans-Medium">Data</p>
+                    <p class="text-[#01DE9B] md:text-lg text-base	AlbertSans-Medium">16 Dec 2023</p>
+                  </div>
+                  <div class="time-event flex flex-col">
+                    <p class="text-xs text-white AlbertSans-Medium">Ora</p>
+                    <p class="text-[#01DE9B] md:text-lg text-base AlbertSans-Medium">20:00 - 05:00</p>
+                  </div>
+                  <div class="place-event flex flex-col">
+                    <p class="text-xs text-white AlbertSans-Medium">Vendodhja</p>
+                    <p class="text-[#01DE9B] md:text-lg text-base AlbertSans-Medium">Folie Electronic</p>
+                  </div>
+                </div>
+                <div class="event-banner flex gap-[20px] pt-[20px]">
+                  <img src="/src/assets/EVENTS/crackcopies.png" class="max-w-[730px] max-h-[250px] h-full w-full bg-red-500 rounded-[10px] object-cover">
+                  <img src="/src/assets/EVENTS/winterrave.png" class="max-w-[300px] max-h-[250px] h-full w-full bg-blue-500 rounded-[10px] object-cover">
+                </div>
+                <div class="event-desc flex pt-[20px] justify-between md:flex-row flex-col pl-[30px] pr-[10px] md:pl-0 md:pr-[10px]">
+                  <p class="md:text-lg text-base text-white max-w-[700px] fontAlbertRegular">
+                    “It’s a pleasure to be hosting a brand new club residency at Phonox in January, with a bunch of my favourite artists joining me on support (to be announced soon)… S
+                    ee you soon.” - Romare.
+                    <br/><br/> Taking his name from the legendary collage artist Romare Bearden, London’s own Romare takes a similar, 
+                    collage-like approach when creating his sample-heavy dance music sound – combining fantasy cinema, 
+                    pop synths and jazz melodies with a wide mix of live instruments. 
+                    This unique, playful sound has captivated music heads all over the world over the past 10 years…
+                  </p>
+                  <div class="event-genre text-white flex flex-col md:items-end items-start pt-[10px] md:pt-0">
+                    <p class="text-sm text-[#01DE9B] fontAlbertRegular">Genre</p>
+                    <p class="fontAlbertRegular">Deep House</p>
+                  </div>
+                </div>
+                <div class="opacity-50 pt-[20px] pl-[30px] md:pl-0">
+                  <p class="text-lg text-white fontAlbertRegular">Do you have a question about the event?</p>
+                </div>
+                <p class="text-lg text-white md:border-b-[1px] inline fontAlbertRegular md:max-w-[185px] max-w-[250px] pl-[30px] md:pl-0 border-none">Contact the promoter</p>
+                <div class="sponser py-[40px]">
+                  <img src='' class="max-[1080px] w-full min-h-[150px] h-full bg-red-500 md:rounded-[10px]">
+                </div>
+                <div class="ticket-event-container md:border-[1px] rounded-[10px] border-opacity-20 border-white pl-[30px] pr-[30px] md:pl-0 md:pr-0">
+                  <div class="md:px-[40px]">
+                    <p class="text-sm text-[#01DE9B] fontAlbertRegular py-[10px] pt-[20px]">Tickets</p>
+                    <div class="event-tickets-details">
+                      <div class="flex justify-between md:items-center py-[20px] flex-col md:flex-row ">
+                        <div class="tickets-event-details flex flex-col text-white ">
+                          <p class="uppercase text-base">General admission</p>
+                          <p class="AlbertSans-Light text-[22px]">150$</p>
+                        </div>
+                        <div class="flex">
+                          <div class="tickets-event-quantity flex text-white items-center gap-[15px] pr-[30px]">
+                            <div class="circle">
+                              <div class="decrease">-</div>
+                            </div>
+                            <p class="ticket-event-number AlbertSans-Light">0</p>
+                            <div class="circle">
+                              <div class="increase">+</div>
+                            </div>                            
+                          </div>
+                          <div class="tickets-event-add text-white border py-[10px] px-[40px] rounded-[60px] text-lg">ADD</div>
+                        </div>
+                      </div>
+                        <div class="flex justify-between md:items-center py-[20px] flex-col md:flex-row">
+                          <div class="tickets-event-details flex flex-col text-white ">
+                            <p class="uppercase text-base">VIP</p>
+                            <p class="AlbertSans-Light text-[22px]">400$</p>
+                          </div>
+                          <div class="flex">
+                            <div class="tickets-event-quantity flex text-white items-center gap-[15px] pr-[30px]">
+                              <div class="circle">
+                                <div class="decrease">-</div>
+                              </div>
+                              <p class="ticket-event-number AlbertSans-Light">0</p>
+                              <div class="circle">
+                                <div class="increase">+</div>
+                              </div>                            
+                            </div>
+                            <div class="tickets-event-add text-white border py-[10px] px-[40px] rounded-[60px] text-lg">ADD</div>
+                          </div>
+                        </div>
+                        <div class="flex justify-between md:items-center py-[20px] flex-col md:flex-row">
+                          <div class="tickets-event-details flex flex-col text-white ">
+                            <p class="uppercase text-base">After party only ticket</p>
+                            <p class="AlbertSans-Light text-[22px]">200$</p>
+                          </div>
+                          <div class="flex">
+                            <div class="tickets-event-quantity flex text-white items-center gap-[15px] pr-[30px]">
+                              <div class="circle">
+                                <div class="decrease">-</div>
+                              </div>
+                              <p class="ticket-event-number AlbertSans-Light">0</p>
+                              <div class="circle">
+                                <div class="increase">+</div>
+                              </div>                            
+                            </div>
+                            <div class="tickets-event-add text-white border py-[10px] px-[40px] rounded-[60px] text-lg">ADD</div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="total-price flex justify-between items-center md:p-[40px] p-[10px]">
+                    <div class="tickets-event-details flex flex-col text-white">
+                        <p class="AlbertSans-Light text-sm">TOTAL</p>
+                        <p class="AlbertSans-Light text-[22px]">600$</p>
+                    </div>
+                    <div class="tickets-view-cart text-white md:py-[35px] md:px-[100px] py-[15px] px-[40px] rounded-[10px] AlbertSans-Medium">View Cart</div>
+                  </div>  
+                </div>
+                <div class="flex flex-col text-white py-[30px] fontAlbertRegular text-sm md:px-0 px-[30px]">
+                        <p class="py-[5px]">FAQ</p>
+                        <p class="text-white opacity-50 fontAlbertRegular text-[14px]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                        </p>
+                </div>
+                <div class="event-banner max-w-[1080px] h-[150px] bg-red-500 rounded-[10px]">
+
+                </div>
+                <div class="event-video relative rounded-[10px] w-full h-full">
+                  <video id="videoFrame" src="/src/assets/video.mp4" class="rounded-[10px]"></video>
+                  <div class="overlay-container absolute md:left-[2rem] md:bottom-[3rem] left-[1rem] bottom-[1rem]">
+                    <img src="/src/assets/EVENTPAGE/play.svg" alt="play" class="play-icon" id="playButton">
+                    <img src="/src/assets/EVENTPAGE/Left.png" alt="play" class="pause-icon" id="pauseButton">
+                  </div>
+                </div>
+                <div class="pt-[20px]">
+                  <div class="flex justify-between py-[30px] md:px-0 px-[30px]">
+                    <p class="text-white fontAlbertRegular">
+                      <span class="opacity-50">MORE ON</span><br/>
+                      <span class="AdieuLight">TIRANA</span>
+                    </p>
+                    <div class="click-swipe flex pointer-events-auto gap-[10px] z-[9999999]">
+                      <img src="/src/assets/EVENTPAGE/Left.png" alt="leftbtn" onclick="swiperSlide('prev')">
+                      <img src="/src/assets/EVENTPAGE/Right.png" alt="rightbtn" onclick="swiperSlide('next')" class="right">
+                    </div>
+                  </div>
+                    <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide flex flex-col">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/puls.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">TBA - PULS</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/places.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">PLACES + FACES</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/kevin.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">KEVIN DE VRIES EXTENDED SET</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/zero.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">BANGERS ONLY LDN</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/winterrave.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">THE WINTER RAVE AT EGG LDN</p>
+                        <p class="pt-3 text-white text-xs">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/actress.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">BANGERS ONLY LDN</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/crackcopies.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">Hello</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/sofresh.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">Hello</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                      <div class="swiper-slide flex flex-col min-w-[200px]">
+                        <img class="w-[273px] h-[273px] rounded-[10px]"src="/src/assets/EVENTS/yourmum.png">
+                        <p class="pt-3 text-white text-base">Hello</p>
+                        <p class="text-[9px] text-white opacity-[0.5]">Hello</p>
+                        <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                      </div>
+                    </div>
+                    <div class="swiper-scrollbar">
+                      <div class="swiper-scrollbar-thumb"></div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="sponser py-[40px]">
+                  <img src='' class="max-[1080px] w-full min-h-[150px] h-full bg-red-500 rounded-[10px]">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="absolute gallerySlider z-[9999999999999999]" id="gallerySlider">
+              <div class="swiper gallerySwipe pt-[5%]">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                  <div class="swiper-slide">                    
+                    <img src="/src/assets/EVENTS/puls.png" alt="event-photo" class="max-w-[500px] max-h-[500px] event-main-img rounded-[10px]">
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <button class="absolute top-[2rem] right-[3rem] z-[999999999]" id="closeGallery"><img src="/src/assets/EVENTPAGE/close.svg" class="w-[30px] h-[30px]" /></button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        direction: "horizontal",
+    
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            direction: "horizontal",
+            pagination: false,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            direction: "horizontal",
+            pagination: false,
+          },
+          1024: {
+            direction: "horizontal",
+            slidesPerView: 3,
+            spaceBetween: 10,
+            scrollbar: {
+              el: ".swiper-scrollbar",
+              draggable: true,
+            },
+            pagination: false,
+          },
+        },
+      });
+    
+      swiper.on('init', function () {
+        updateScrollbarHeight();
+      });
+    
+      swiper.on('slideChange', function () {
+        updateScrollbarHeight();
+      });
+    
+      function updateScrollbarHeight() {
+        if (swiper && swiper.slides && swiper.$el) {
+          var totalHeight = swiper.slides.length * swiper.slides[0].offsetHeight;
+          var containerHeight = swiper.$el.innerHeight();
+          var scrollbarHeight = containerHeight * (containerHeight / totalHeight);
+          document.querySelector('.swiper-scrollbar-thumb').style.height = scrollbarHeight + 'px';
+        }
+      }
+
+      function swiperSlide (direction){
+        if(direction ==='prev'){
+          swiper.slidePrev();
+        } else if (direction ==='next'){
+          swiper.slideNext();
+        }
+      }
+    </script>
+      
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper(".gallerySwipe", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        });
+        var playButton = document.getElementById("playButton");
+        var pauseButton = document.getElementById("pauseButton");
+        var videoFrame = document.getElementById("videoFrame");
+
+        playButton.addEventListener("click", function(){
+           videoFrame.play();
+           playButton.style.display = "none";
+           pauseButton.style.display = 'inline-block';
+        });
+
+        pauseButton.addEventListener('click', function(){
+          videoFrame.pause();
+          pauseButton.style.display = 'none';
+          playButton.style.display = "inline-block";
+        })
+
+        var openModal = document.getElementById('gallery-img-number');
+        var gallerySlider = document.getElementById('gallerySlider');
+        var closeBtn = document.getElementById('closeGallery');
+        openModal.addEventListener('click', function(){
+          gallerySlider.style.display = 'inline-block';
+        });
+        closeBtn.addEventListener('click', function(){
+          console.log("Button clicked");
+          gallerySlider.style.display = 'none';
+        });
+      });
+
+    </script>
+
+  </body>
+</html>

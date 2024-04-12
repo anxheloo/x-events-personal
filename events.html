@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/src/css/styles.css" rel="stylesheet" />
+    <link href="/src/css/event.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+        padding: 20px !important;
+      }
+      .swiper-scrollbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0.2);
+        opacity: 1;
+        transition: opacity 0.3s;
+        z-index: 10;
+      }
+      .swiper-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(1, 222, 155, 0.3);
+      }
+      .swiper-scrollbar-drag {
+        background-color: rgb(1, 222, 155, 0.3);
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+      }
+      @media screen and (max-width: 786px) {
+        .swiper-slide {
+          height: 70% !important;
+        }
+        .swiper-slide:nth-child(2n) {
+          height: 70% !important;
+        }
+        .swiper-slide:nth-child(3n) {
+          height: 70% !important;
+        }
+        .swiper-scrollbar {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <div class="background w-full h-screen relative">
+    <header class="bg-transparent flex flex-col lg:flex-row px-14 w-full justify-between lg:justify-start baseheader items-center">
+      <div class="flex justify-between w-full lg:w-auto h-full items-center">
+        <div class="w-36">
+          <a href="index.html"><img src="/src/assets/images/logo.svg" class="w-full"></a>
+        </div>
+        <div
+          id="mobile-menu-2"
+          class="hidden flex-col lg:flex lg:flex-row lg:justify-center w-full lg:items-center lg:flex-wrap h-full"
+        >
+          <a
+            id="Home"
+            href="index.html"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase py-7 lg:py-0 text-sm lg:h-full px-12 lg:px-0 border border-slate-200/50 border-x-0 lg:border-0 lg:items-center lg:justify-center"
+            >Home</a
+          >
+          <a
+            id="Events"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Events</a
+          >
+          <a
+            id="Music"
+            href="#"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 underscore relative flex flex-col uppercase text-sm py-7 lg:py-0 px-12 lg:px-0 hidden border-slate-200/50 border border-t-0 border-x-0 lg:border-0 md:hidden lg:h-full lg:items-center lg:justify-center"
+            >Music</a
+          >
+          <a
+            id="aboutUs"
+            href="aboutUs.html"
+            id="ab"
+            class="lg:mx-5 text-gray-500 hover:text-gray-200 relative flex flex-col uppercase text-sm lg:h-full py-7 lg:py-0 px-12 lg:px-0 border border-slate-200/50 border-x-0 border-t-0 lg:border-0 lg:items-center lg:justify-center"
+            >About Us</a
+          >
+        </div>
+      </header>
+      <div class="divContainer basecontainer">
+        <div class="absolute top-0 top-right right-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element1.svg" class="corners" />
+        </div>
+        <div class="absolute bottom-0 left-0 flex cornershomepage">
+          <img src="/src/assets/images/icon-element2.svg" class="corners" />
+        </div>
+        <div
+          class="border border-slate-300/50 rounded-[45px] w-auto mx-10 sm:mx-36 h-full"
+        >
+          <div class="m-auto p-0 sm:p-16 flex flex-col h-full">
+            <div class="flex justify-between md:flex-row flex-col">
+              <p class="text-white text-4xl hidden md:block">Events</p>
+              <div
+                class="flex items-center border-b border-white border-opacity-20 md:border-none md:gap-[10px] md:p-0 p-5"
+              >
+                <p
+                  class="text-white text-sm uppercase pr-3 md:p-3 md:rounded-full md:border border-white border-opacity-20 border-r"
+                >
+                  Date
+                </p>
+                <div class="relative">
+                  <p
+                    class="text-white text-sm px-3 md:p-3 uppercase md:rounded-full md:border border-white border-opacity-20 border-r"
+                  >
+                    Genre
+                  </p>
+                  <div class="triangle"></div>
+                  <div class="flex flex-col text-white event-filter absolute">
+                    <p>Lorem ipsum dolor.</p>
+                    <p>Suspendisse rhoncus</p>
+                    <p>Curabitur eget</p>
+                    <p>Curabitur sed.</p>
+                    <p>Sed tincidunt</p>
+                    <p>Lorem ipsum</p>
+                    <p>Suspendisse</p>
+                    <p>Curabitur</p>
+                    <p>Curabitur</p>
+                    <p>Sed tincidunt</p>
+                  </div>
+                </div>
+                <p
+                  class="text-white text-sm px-3 md:p-3 uppercase md:rounded-full md:border md:border-white md:border-opacity-20"
+                >
+                  Event type
+                </p>
+              </div>
+            </div>
+            <div class="swiper mySwiper md:p-0 p-5">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/puls.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">TBA - PULS</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/places.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">PLACES + FACES</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/kevin.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">KEVIN DE VRIES EXTENDED SET</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/zero.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">BANGERS ONLY LDN</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/winterrave.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">THE WINTER RAVE AT EGG LDN</p>
+                  <p class="pt-3 text-white text-xs">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/actress.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">BANGERS ONLY LDN</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/crackcopies.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/sofresh.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/yourmum.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/yourmum.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/yourmum.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/yourmum.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+                <div class="swiper-slide flex flex-col">
+                  <img
+                    class="w-[300px] h-[300px]"
+                    src="/src/assets/EVENTS/yourmum.png"
+                  />
+                  <p class="pt-3 text-white text-base">Hello</p>
+                  <p class="custom-text">Hello</p>
+                  <p class="pt-3 text-white font-11">TIRANE | 7 DEC</p>
+                </div>
+              </div>
+              <div class="swiper-scrollbar">
+                <div class="swiper-scrollbar-thumb"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 3,
+        direction: "vertical",
+
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 3,
+            direction: "vertical",
+            pagination: false,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 3,
+            direction: "vertical",
+            pagination: false,
+          },
+          1024: {
+            direction: "horizontal",
+            slidesPerView: 5,
+            spaceBetween: 30,
+            scrollbar: {
+              el: ".swiper-scrollbar",
+              draggable: true,
+            },
+            pagination: false,
+          },
+        },
+      });
+
+      swiper.on("init", function () {
+        updateScrollbarHeight();
+      });
+
+      swiper.on("slideChange", function () {
+        updateScrollbarHeight();
+      });
+
+      function updateScrollbarHeight() {
+        if (swiper && swiper.slides && swiper.$el) {
+          var totalHeight =
+            swiper.slides.length * swiper.slides[0].offsetHeight;
+          var containerHeight = swiper.$el.innerHeight();
+          var scrollbarHeight =
+            containerHeight * (containerHeight / totalHeight);
+          document.querySelector(".swiper-scrollbar-thumb").style.height =
+            scrollbarHeight + "px";
+        }
+      }
+    </script>
+  </body>
+</html>
